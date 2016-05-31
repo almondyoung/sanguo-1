@@ -1,6 +1,6 @@
 # sanguo
 
-> sanguobaye
+网页版步步高三国霸业游戏，怀旧经典游戏，练习使用Vue
 
 ## Build Setup
 
