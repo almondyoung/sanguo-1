@@ -3,6 +3,7 @@ import App from './app.vue'
 import Home from './components/home.vue'
 import New from './components/new.vue'
 import Select from './components/select.vue'
+import Maininterface from './components/maininterface.vue'
 
 import VueRouter from 'vue-router'
 
@@ -19,6 +20,10 @@ router.map({
   },
   '/select': {
     component: Select
+  },
+  '/main/:index': {
+    name: 'main',
+    component: Maininterface
   }
 
 })

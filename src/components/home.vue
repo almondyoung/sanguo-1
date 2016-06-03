@@ -1,9 +1,9 @@
 <template>
 <div class="home">
-  <a v-link="'/new'" class="new"></a>
-  <a class="back"></a>
-  <a class="work"></a>
-  <a class="end"></a>
+ <a v-link="'/new'"></a>
+<a ></a>
+<a></a>
+<a></a>
 </div>
 </template>
 
@@ -14,24 +14,26 @@
     padding-top: 25%;
     background:url(../images/300001042527132989872795540_950.jpg);
     background-size: cover;
+    text-align: center;
   }
+
   a{
-    float: left;
+    display: inline-block;
     width: 355px;
     height: 105px;
-    margin:20px;
     cursor: pointer;
+    margin:15px;
   }
-  .back{
-    background-image: url(../images/gmback.jpg);
-  }
-  .end{
-    background-image:url(../images/gmend.jpg);
-  }
-  .new{
+  a:nth-child(1){
     background-image: url(../images/gmnew.jpg);
   }
-  .work{
+  a:nth-child(2){
+    background-image: url(../images/gmback.jpg);
+  }
+  a:nth-child(3){
     background-image: url(../images/gmwork.jpg);
+  }
+  a:nth-child(4){
+    background-image:url(../images/gmend.jpg);
   }
 </style>

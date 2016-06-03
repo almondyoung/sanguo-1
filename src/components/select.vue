@@ -61,7 +61,7 @@
 <template>
   <div class="stage">
     <ul>
-      <li v-for="owner in owners" :class="{'me': me===owner}"  @mouseenter = "me=owner" >{{owner.name}}</li>
+      <li v-link="{name:'main',params:{index:$index}}" v-for="owner in owners" :class="{'me': me===owner}"  @mouseenter = "me=owner">{{owner.name}}</li>
     </ul>
       <table>
         <caption>势力形势图</caption>
@@ -84,9 +84,6 @@ export default {
       owners: Owners,
       me: Owners[0]
     }
-  },
-  methods: {
-
   }
 }
 </script>
