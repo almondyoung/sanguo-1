@@ -17,6 +17,7 @@
     margin:60px;
     background: #C69751;
     overflow: auto;
+    cursor: pointer;
   }
 
   ::-webkit-scrollbar {
@@ -30,13 +31,7 @@
     box-shadow:inset 0 0 6px rgba(0,0,0,0.5);
   }
 
-  a{
-    display: inline-block;
-    width: 100%;
-    color:#000;
-    text-decoration: none;
-  }
-  a:hover{
+  .me{
       color:#fff;
       background: #3968AE;
     }
@@ -48,34 +43,31 @@
     background: url(../images/map.jpg);
     background-size: cover;
   }
+  td{
+    box-sizing: border-box;
+    width:20px;
+    height:20px;
+    font-size: 0;
+  }
   .city{
-    width: 10px;
-    height: 10px;
     background: #fff;
     border: 5px solid #000;
+  }
+  .my-zone{
+    background: #000;
   }
 
 </style>
 <template>
   <div class="stage">
     <ul>
-      <li><a href="">马腾及</a></li>
-      <li><a href="">马腾及</a></li>
-      <li><a href="">马腾及</a></li>
-      <li><a href="">马腾及</a></li>
-      <li><a href="">马腾及</a></li>
-      <li><a href="">马腾及</a></li>
-      <li><a href="">马腾及</a></li>
-      <li><a href="">马腾及</a></li>
-      <li><a href="">马腾及</a></li>
-      <li><a href="">马腾及</a></li>
-      <li><a href="">马腾及</a></li>
+      <li v-for="owner in owners" :class="{'me': me===owner}"  @mouseenter = "me=owner" >{{owner.name}}</li>
     </ul>
       <table>
         <caption>势力形势图</caption>
         <tbody>
         <tr v-for="row in cities">
-          <td v-for = "city in row" :class="{'city': city}"></td>
+          <td v-for = "city in row" :class="{'city': city,'my-zone':me.site.indexOf(city)>-1}"></td>
         </tr>
         </tbody>
       </table>
@@ -84,12 +76,17 @@
 
 <script>
 import City from './map.js'
+import Owners from './owner.js'
 export default {
-
   data () {
     return {
-      cities: City
+      cities: City,
+      owners: Owners,
+      me: Owners[0]
     }
+  },
+  methods: {
+
   }
 }
 </script>
